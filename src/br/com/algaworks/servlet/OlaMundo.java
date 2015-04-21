@@ -1,4 +1,4 @@
-package com.thiago.eu;
+package br.com.algaworks.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
