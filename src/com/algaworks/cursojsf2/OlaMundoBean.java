@@ -1,8 +1,8 @@
 package com.algaworks.cursojsf2;
 
-//import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedBean;
 
-//@ManagedBean
+@ManagedBean
 public class OlaMundoBean {
 
 	private String nome;
