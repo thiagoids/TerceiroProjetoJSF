@@ -4,12 +4,16 @@
 	xmlns:h="http://java.sun.com/jsf/html">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Insert title here</title>
 </head>
 <body>
-	<h:inputText value="Digite algo aqui 1" />
-	<h:inputText value="Digite algo aqui 2" />
-	<h:inputText value="Digite algo aqui 3" />
-	<h:inputText value="Digite algo aqui 4" />
+	<h:form>
+		Seu nome:
+		<h:inputText value="#{oiTeste.nome}" />
+		<h:commandButton value="Enviar"
+			action="#{oiTeste.MudarParaMaiusculo()}" />
+
+		<br />
+		Nome digitado: #{oiTeste.nome}
+	</h:form>
 </body>
 </html>
