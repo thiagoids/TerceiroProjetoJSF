@@ -3,13 +3,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html">
 <head>
+<title>Teste</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 </head>
 <h:body>
 	<h:form>
 		Seu nome:
-		<h:inputText />
-		<h:commandButton />
+		<h:inputText biding="#{testBean.campo}" />
+		<h:inputText value="#{testeBean.asdf}" />
+		<h:commandButton action="#{testeBean.testar}" value="Testar"
+			biding="#{testeBean.botao}" />
 
 		<br />
 	</h:form>
