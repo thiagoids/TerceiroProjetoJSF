@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:u="http://java.sun.com/jsf/facelets">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:u="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Insert title here</title>
 </head>
 <h:body>
+
 	<h:form>
+		<h:commandLink action="#{gestaoProdutoBean.redirecionarAjuda}" value="Ajuda">
+
+			<f:actionListener biding="#{registroCliqueListener}" />
+		</h:commandLink>
+		<br />
+		
 	Nome:
 	<h:inputText value="#{gestaoProdutoBean.prod.nome}" />
 		<br />
@@ -21,15 +26,23 @@
 	<h:inputText value="#{gestaoProdutoBean.prod.categoria}" />
 		<br />
 
-		<h:commandButton value="Incluir" action="#{gestaoProdutoBean.incluir}" />
+		<h:commandButton value="Incluir" action="#{gestaoProdutoBean.incluir}">
+			<f:actionListener type="com.algaworks.cursojsf2.RegistroCliqueListener" />
+		</h:commandButton>
 	</h:form>
 
-	<ol>
-		<u:repeat var="item" value="#{gestaoProdutoBean.produtos}">
-			<li>#{item.nome} - #{item.categoria}</li>
+	<h:form>
+		<ol>
+			<u:repeat var="item" value="#{gestaoProdutoBean.produtos}">
+				<li>#{item.nome} - #{item.categoria} <h:commandButton value="Excluir" action="#{gestaoProdutoBean.excluir}">
+						<f:setPropertyActionListener target="#{gestaoProdutoBean.prodSelecionado}" value="#{item}" />
+					</h:commandButton>
 
-		</u:repeat>
-	</ol>
+				</li>
+
+			</u:repeat>
+		</ol>
+	</h:form>
 
 </h:body>
 </html>
