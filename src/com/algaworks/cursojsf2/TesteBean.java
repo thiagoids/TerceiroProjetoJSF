@@ -8,11 +8,17 @@ import javax.faces.component.html.HtmlInputText;
 public class TesteBean {
 	private HtmlInputText campo;
 	private HtmlCommandButton botao;
-	private String asdf;
+
+	public TesteBean() {
+		campo = new HtmlInputText();
+		botao = new HtmlCommandButton();
+	}
 
 	public void testar() {
 		campo.setDisabled(false);
-		// botao.setStyle("background-color:red; color:white;");
+		campo.setTitle("teste 1111");
+		botao.setStyle("background-color:red; color:white;");
+		// campo.setAlt("thiago");
 	}
 
 	public HtmlInputText getCampo() {
@@ -30,13 +36,4 @@ public class TesteBean {
 	public void setBotao(HtmlCommandButton botao) {
 		this.botao = botao;
 	}
-
-	public String getAsdf() {
-		return asdf;
-	}
-
-	public void setAsdf(String asdf) {
-		this.asdf = asdf;
-	}
-
 }

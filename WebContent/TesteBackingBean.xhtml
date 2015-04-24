@@ -9,11 +9,9 @@
 <h:body>
 	<h:form>
 		Seu nome:
-		<h:inputText biding="#{testBean.campo}" />
-		<h:inputText value="#{testeBean.asdf}" />
-		<h:commandButton action="#{testeBean.testar}" value="Testar"
+		<h:inputText value="#{testeBean.campo}" />
+		<h:commandButton action="#{testeBean.testar()}" value="Testar"
 			biding="#{testeBean.botao}" />
-
 		<br />
 	</h:form>
 </h:body>
