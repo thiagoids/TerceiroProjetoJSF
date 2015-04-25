@@ -8,6 +8,7 @@ import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.event.ActionEvent;
+import javax.faces.event.ValueChangeEvent;
 
 @ManagedBean
 // @ApplicationScoped
@@ -16,21 +17,27 @@ import javax.faces.event.ActionEvent;
 // @NoneScoped
 @SessionScoped
 public class GestaoProdutoBean {
+	private List<Produto> produtosSelecionados;
 	private List<Produto> produtos;
 	private Produto prod;
-	private Produto prodSelecionado;
+	private Produto prodSelecionadoExclusao;
 
-	public Produto getProdSelecionado() {
-		return prodSelecionado;
+	public List<Produto> getProdutosSelecionados() {
+		return produtosSelecionados;
 	}
 
-	public void setProdSelecionado(Produto prodSelecionado) {
-		this.prodSelecionado = prodSelecionado;
+	public Produto getProdSelecionadoExclusao() {
+		return prodSelecionadoExclusao;
+	}
+
+	public void setProdSelecionadoExclusao(Produto prodSelecionadoExclusao) {
+		this.prodSelecionadoExclusao = prodSelecionadoExclusao;
 	}
 
 	public GestaoProdutoBean() {
 		produtos = new ArrayList<Produto>();
 		prod = new Produto();
+		produtosSelecionados = new ArrayList<Produto>();
 	}
 
 	public void incluir() {
@@ -79,7 +86,20 @@ public class GestaoProdutoBean {
 	}
 
 	public void excluir() {
-		this.produtos.remove(prodSelecionado);
+		this.produtos.remove(prodSelecionadoExclusao);
 	}
 
+	public void pesquisaProduto(ValueChangeEvent event) {
+
+		System.out.println("passou aqui");
+
+		this.produtosSelecionados.clear();
+		for (Produto item : produtos) {
+			if (item.getNome().toUpperCase()
+					.startsWith(event.getNewValue().toString().toUpperCase())) {
+				this.produtosSelecionados.add(item);
+			}
+		}
+
+	}
 }
